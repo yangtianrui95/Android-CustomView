@@ -20,15 +20,24 @@
     <!--app:titleTextSize="20sp" />-->
 
 
-    <com.terry.customview.widget.CustomImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="50dp"
-        app:image="@mipmap/ic_launcher"
-        app:imageScaleType="center"
-        app:titleText="hello andorid ! "
-        app:titleTextColor="#ff0000"
-        app:titleTextSize="30sp" />
+    <!--<com.terry.customview.widget.CustomImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="10dp"-->
+    <!--android:padding="50dp"-->
+    <!--app:image="@mipmap/ic_launcher"-->
+    <!--app:imageScaleType="center"-->
+    <!--app:titleText="hello andorid ! "-->
+    <!--app:titleTextColor="#ff0000"-->
+    <!--app:titleTextSize="30sp" />-->
+
+    <com.terry.customview.widget.LoadingView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        app:circleWidth="10dp"
+        app:secondColor="@color/colorAccent"
+        app:speed="10"
+        app:startColor="@color/colorPrimary" />
 
 </RelativeLayout>

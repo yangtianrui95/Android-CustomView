@@ -13,6 +13,13 @@
         <enum name="center" value="1" />
     </attr>
 
+    <!--自定义圆形进度条-->
+    <attr name="startColor" format="color" />
+    <attr name="secondColor" format="color" />
+    <attr name="speed" format="integer" />
+    <attr name="circleWidth" format="dimension" />
+
+
     <!--将自定义属性与控件相结合-->
     <declare-styleable name="RectTitleView">
         <attr name="titleText" />
@@ -27,6 +34,14 @@
         <attr name="titleTextSize" />
         <attr name="image" />
         <attr name="imageScaleType" />
+    </declare-styleable>
+
+    <!--与圆形进度条控件想结合-->
+    <declare-styleable name="LoadingView">
+        <attr name="startColor" />
+        <attr name="secondColor" />
+        <attr name="speed" />
+        <attr name="circleWidth" />
     </declare-styleable>
 
 </resources>
