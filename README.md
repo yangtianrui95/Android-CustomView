@@ -121,6 +121,8 @@ protected void onDraw(Canvas canvas) {
 ## 自定义圆形进度条
 
 ![这里写图片描述](http://img.blog.csdn.net/20160814163221555)
+
+
 通过一个进程不断计算角度,在postInvalidate()不断通知重绘即可.
 
 ```
