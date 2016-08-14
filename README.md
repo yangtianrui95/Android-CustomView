@@ -117,3 +117,59 @@ protected void onDraw(Canvas canvas) {
         app:titleTextColor="@color/colorAccent"
         app:titleTextSize="20sp" />
 ```
+
+## 自定义圆形进度条
+
+![这里写图片描述](http://img.blog.csdn.net/20160814163221555)
+通过一个进程不断计算角度,在postInvalidate()不断通知重绘即可.
+
+```
+ // 开启绘图线程
+new Thread() {
+    @Override
+    public void run() {
+        // 不停的绘制圆
+        while (true) {
+            mProgress++;
+            if (mProgress == 360) {
+                mProgress = 0;
+                isNext = !isNext;
+            }
+            postInvalidate();
+            try {
+                Thread.sleep(mSpeed);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}.start();
+```
+
+### onDraw()中的绘制圆和绘制角度是核心
+```
+ @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int center = getWidth() / 2;
+        int radius = center - mCircleWidth / 2;
+        // 设置圆环的宽度
+        mPaint.setStrokeWidth(mCircleWidth);
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.STROKE); // 设置为空心
+        RectF oval = new RectF(center - radius, center - radius, center + radius, center + radius);
+        if (!isNext) {
+            mPaint.setColor(mStartColor);
+            // 画出圆环
+            canvas.drawCircle(center, center, radius, mPaint);
+            mPaint.setColor(mSecondColor);
+            // 根据进度进行绘制圆弧
+            canvas.drawArc(oval, -90, mProgress, false, mPaint);
+        } else {
+            mPaint.setColor(mSecondColor);
+            canvas.drawCircle(center, center, radius, mPaint);
+            mPaint.setColor(mStartColor);
+            canvas.drawArc(oval, -90, mProgress, false, mPaint);
+        }
+    }
+```
