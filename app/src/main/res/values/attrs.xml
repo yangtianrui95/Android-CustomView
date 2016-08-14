@@ -5,10 +5,28 @@
     <attr name="titleTextColor" format="color" />
     <attr name="titleTextSize" format="dimension" />
 
+    <!--CustomImageView-->
+    <attr name="image" format="reference" />
+    <!--设置枚举属性-->
+    <attr name="imageScaleType" format="enum">
+        <enum name="fillXY" value="0" />
+        <enum name="center" value="1" />
+    </attr>
+
     <!--将自定义属性与控件相结合-->
     <declare-styleable name="RectTitleView">
         <attr name="titleText" />
         <attr name="titleTextColor" />
         <attr name="titleTextSize" />
     </declare-styleable>
+
+
+    <declare-styleable name="CustomImageView">
+        <attr name="titleText" />
+        <attr name="titleTextColor" />
+        <attr name="titleTextSize" />
+        <attr name="image" />
+        <attr name="imageScaleType" />
+    </declare-styleable>
+
 </resources>
